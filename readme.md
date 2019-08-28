@@ -7,14 +7,6 @@
 * [Tratamento de erros](./aula-3.md)
 * [Monitoramento e serguança de serviços](./aula-4.md)
 
-## Exercícios:
-
-
-
-## Avaliação:
-
-Para detalhes sobre o trabalho de avaliação da disciplina clique [aqui](./avaliacao.md).
-
 ## Referências:
 
 Abaixo segue a lista de livros, vídeos e materiais de referência utilizados como apoio para esta disciplina.
