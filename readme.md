@@ -11,7 +11,7 @@
 
 Abaixo segue a lista de livros, vídeos e materiais de referência utilizados como apoio para esta disciplina.
 
-| Capaa | Título | ISBN | Autor(es) |
+| Capa | Título | ISBN | Autor(es) |
 |:-:|--------|------|-----------|
 |![](./imagens/restful-java-with-jaxrs20.jpeg)|[RESTful Java Web Services, Third Edition](https://www.amazon.com/RESTful-Java-Web-Services-pragmatic/dp/1788294041/ref=sr_1_1?keywords=9781788294041&qid=1566425192&s=books&sr=1-1)|9781788294041|Bogunuva Mohanram Balachandar|
 |![](./imagens/handson-restful-api-design-patterns-and-best-pratices.jpeg)|[Hands-On RESTful API Design Patterns and Best Practices](https://www.amazon.com/Hands-RESTful-Design-Patterns-Practices/dp/1788992660/ref=sr_1_1?keywords=9781788992664&qid=1566425304&s=books&sr=1-1)|9781788992664|Pethuru Raj, Harihara Subramanian|
