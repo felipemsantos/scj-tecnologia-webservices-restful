@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> search(String keyword) throws ProductServiceException {
         log.info("Searching products for keyword={}", keyword);
         try {
-            List<Product> result = Collections.emptyList();
+            List<Product> result = new ArrayList<>();
 
             if (keyword == null || keyword.isEmpty()) {
                 log.debug("No keyword specified, listing all products");
