@@ -34,7 +34,8 @@ import static org.mockito.Mockito.*;
 public class ProductResourceTest {
 
     Product mockProduct = new Product(9999l, "Gramepador", "Grapeia até 20 folhas", 19.90d);
-
+    Product mockProductEmpty = new Product();
+    
     @Autowired
     private ObjectMapper objectMapper;
     @Autowired
@@ -44,11 +45,13 @@ public class ProductResourceTest {
 
     @Before
     public void setup() throws Exception {
-        when(service.search(any()))
+    	when(service.search(any()))
                 .thenReturn(Arrays.asList(mockProduct));
         when(service.create(any(Product.class)))
                 .thenReturn(mockProduct);
         when(service.retrieve(anyLong()))
+				.thenReturn(mockProductEmpty);
+        when(service.retrieve(9999l))
                 .thenReturn(mockProduct);
         when(service.update(anyLong(), any(Product.class)))
                 .thenReturn(mockProduct);
@@ -125,6 +128,25 @@ public class ProductResourceTest {
         assertEquals(HttpStatus.FOUND.value(), response.getStatus());
 
         String expected = objectMapper.writeValueAsString(mockProduct);
+
+        JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+
+    }
+    
+    @Test
+    public void testRetrieveError() throws Exception {
+        RequestBuilder requestBuilder = MockMvcRequestBuilders
+                .get("/products/1")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON);
+
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+
+        MockHttpServletResponse response = result.getResponse();
+
+        assertEquals(HttpStatus.FOUND.value(), response.getStatus());
+
+        String expected = objectMapper.writeValueAsString(mockProductEmpty);
 
         JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
 
