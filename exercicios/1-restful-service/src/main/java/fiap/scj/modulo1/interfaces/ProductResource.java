@@ -4,6 +4,8 @@ import fiap.scj.modulo1.application.ProductService;
 import fiap.scj.modulo1.domain.Product;
 import fiap.scj.modulo1.infrastructure.ProductServiceException;
 import lombok.extern.slf4j.Slf4j;
+
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +22,7 @@ import static fiap.scj.modulo1.infrastructure.ProductServiceException.*;
 @RequestMapping("/products")
 @Slf4j
 public class ProductResource {
-
+	
     private final ProductService service;
 
     @Autowired
