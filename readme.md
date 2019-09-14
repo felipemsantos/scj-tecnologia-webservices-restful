@@ -5,7 +5,7 @@
 * [Introdução e boas práticas de design de serviços](./aula-1.md)
 * [Serviços RESTful](./aula-2.md)
 * [Tratamento de erros](./aula-3.md)
-* [Monitoramento e serguança de serviços](./aula-4.md)
+* [Monitoramento e segurança de serviços](./aula-4.md)
 
 ## Referências:
 

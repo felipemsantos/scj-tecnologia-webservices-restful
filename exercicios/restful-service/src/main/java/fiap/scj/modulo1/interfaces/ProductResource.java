@@ -28,8 +28,9 @@ public class ProductResource {
         this.service = service;
     }
 
+
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseStatus(code = HttpStatus.FOUND)
+    @ResponseStatus(code = HttpStatus.OK)
     public List<Product> search(@RequestParam(required = false) String keyword) {
         log.info("Processing search request");
         try {
@@ -61,12 +62,12 @@ public class ProductResource {
         return new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }
 
+
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(code = HttpStatus.CREATED)
     public ResponseEntity<Void> create(@RequestBody Product product) throws ProductServiceException {
         log.info("Processing create request");
         try {
-
             Product result = service.create(product);
             URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
                     "/{id}").buildAndExpand(result.getId()).toUri();
@@ -77,8 +78,9 @@ public class ProductResource {
         }
     }
 
+
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
-    @ResponseStatus(code = HttpStatus.FOUND)
+    @ResponseStatus(code = HttpStatus.OK)
     public Product retrieve(@PathVariable Long id) throws ProductServiceException {
         log.info("Processing retrieve request");
         try {
@@ -89,8 +91,9 @@ public class ProductResource {
         }
     }
 
+
     @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    @ResponseStatus(code = HttpStatus.OK)
     public Product update(@PathVariable Long id, @RequestBody Product product) throws ProductServiceException {
         log.info("Processing update request");
         try {
@@ -100,6 +103,7 @@ public class ProductResource {
             throw exceptionHandler(e);
         }
     }
+
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)

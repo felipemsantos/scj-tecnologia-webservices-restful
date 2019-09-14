@@ -1,7 +1,6 @@
 package fiap.scj.modulo1.application;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import fiap.scj.modulo1.domain.Product;
 import fiap.scj.modulo1.domain.repository.ProductRepository;
 import fiap.scj.modulo1.infrastructure.ProductServiceException;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 import static fiap.scj.modulo1.infrastructure.ProductServiceException.*;
@@ -35,11 +34,11 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> search(String keyword) throws ProductServiceException {
         log.info("Searching products for keyword={}", keyword);
         try {
-            List<Product> result = Collections.emptyList();
+            List<Product> result = new ArrayList<>();
 
             if (keyword == null || keyword.isEmpty()) {
                 log.debug("No keyword specified, listing all products");
-                repository.findAll().forEach(product -> result.add(product));
+                result.addAll(repository.findAll());
             } else {
                 log.debug("Finding products by name or description");
                 result.addAll(repository.findByNameOrDescriptionAllIgnoreCase(keyword, keyword));
@@ -94,7 +93,7 @@ public class ProductServiceImpl implements ProductService {
             }
             if (!repository.existsById(id)) {
                 log.debug("Product not found for id={}", id);
-                return null;
+                throw new ProductServiceException(PRODUCT_NOT_FOUND_ERROR, null);
             }
             Product result = repository.save(product);
             return result;
