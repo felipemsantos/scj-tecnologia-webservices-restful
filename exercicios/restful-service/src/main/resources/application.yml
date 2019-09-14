@@ -1,0 +1,25 @@
+spring:
+    datasource:
+        driver-class-name: org.h2.Driver
+        url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+        username: sa
+        password: sa
+    jpa:
+        hibernate:
+            dialect: org.hibernate.dialect.H2Dialect
+            ddl-auto: create-drop
+            show_sql: true
+            hbm2ddl.auto: create-drop
+    h2:
+        console:
+            enabled: true
+            path: /db
+
+management:
+    endpoints:
+        enabled-by-default: true
+        web:
+            exposure:
+                include: '*'
+            base-path: /actuator
+
