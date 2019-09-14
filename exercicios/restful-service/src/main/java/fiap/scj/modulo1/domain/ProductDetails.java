@@ -6,22 +6,20 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @Entity
-@Table(name = "products")
+@Table(name = "products_details")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product implements Serializable {
+public class ProductDetails implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String name;
+    private String key;
     private String description;
-    private Double price;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "produtc", orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<ProductDetails> productDetails;
+    private Product product;
+
 }
