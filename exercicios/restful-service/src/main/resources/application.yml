@@ -22,4 +22,6 @@ management:
             exposure:
                 include: '*'
             base-path: /actuator
+    server:
+      port: 9090
 

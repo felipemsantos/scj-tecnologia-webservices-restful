@@ -20,6 +20,7 @@ public class ProductDetails implements Serializable {
     private String key;
     private String description;
 
+    @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Product product;
 
 }

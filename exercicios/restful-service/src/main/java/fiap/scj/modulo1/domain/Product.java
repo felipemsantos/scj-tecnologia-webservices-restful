@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -22,6 +23,4 @@ public class Product implements Serializable {
     private String description;
     private Double price;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "produtc", orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<ProductDetails> productDetails;
 }
