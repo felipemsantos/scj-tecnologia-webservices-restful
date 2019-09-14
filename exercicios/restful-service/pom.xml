@@ -11,26 +11,14 @@
     </parent>
 
     <groupId>fiap.scj</groupId>
-    <artifactId>scj-modulo1-rest</artifactId>
+    <artifactId>scj-restful-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>scj-modulo1-rest</name>
-    <description>FIAP - SCJ - Modulo 1 - Rest</description>
+    <name>scj-restful-service</name>
+    <description>FIAP - SCJ - Restful service</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR2</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
         <dependency>

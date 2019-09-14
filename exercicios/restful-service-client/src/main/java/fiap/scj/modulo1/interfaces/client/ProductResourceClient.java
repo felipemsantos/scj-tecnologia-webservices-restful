@@ -29,5 +29,4 @@ public interface ProductResourceClient {
     @RequestLine("DELETE /products/{id}")
     Response delete(@Param("id") Long id);
 
-
 }

@@ -10,8 +10,9 @@
     <name>FIAP - SCJ - Webservices and Restful Technologies</name>
 
     <modules>
-        <module>exercicios/1-restful-service</module>
-        <module>exercicios/1-restful-service-client</module>
+        <module>exercicios/restful-service</module>
+        <module>exercicios/restful-service-client</module>
+        <module>exercicios/authentication-service</module>
     </modules>
 
 </project>
