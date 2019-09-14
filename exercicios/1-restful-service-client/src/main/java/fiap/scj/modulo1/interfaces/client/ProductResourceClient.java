@@ -1,19 +1,33 @@
 package fiap.scj.modulo1.interfaces.client;
 
+import feign.Headers;
+import feign.Param;
+import feign.RequestLine;
+import feign.Response;
 import fiap.scj.modulo1.domain.Product;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@Component
-@FeignClient(value = "products", url = "http://localhost:8080")
+@Headers({"Content-Type: application/json", "Accept: application/json"})
 public interface ProductResourceClient {
 
-    @RequestMapping(method = RequestMethod.GET, path = "/products")
-    List<Product> search(@RequestParam("keyword") String keyword);
+    @RequestLine("GET /products")
+    List<Product> search();
+
+    @RequestLine("GET /products?keyword={keyword}")
+    List<Product> search(@Param("keyword") String keyword);
+
+    @RequestLine("POST /products")
+    Response create(Product product);
+
+    @RequestLine("GET /products/{id}")
+    Product retrieve(@Param("id") Long id);
+
+    @RequestLine("PUT /products/{id}")
+    Product update(@Param("id") Long id, Product product);
+
+    @RequestLine("DELETE /products/{id}")
+    Response delete(@Param("id") Long id);
+
 
 }

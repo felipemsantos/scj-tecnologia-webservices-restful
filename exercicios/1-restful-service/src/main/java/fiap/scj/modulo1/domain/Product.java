@@ -17,10 +17,8 @@ public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Column(nullable = false)
     private String name;
     private String description;
-    @Column(nullable = false)
     private Double price;
 
 }
